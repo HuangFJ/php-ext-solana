@@ -1,0 +1,12 @@
+[package]
+name = "php-ext-solana"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ext-php-rs = { path = "crates/ext-php-rs" }
+solana-sdk = "*"
+tiny-bip39 = "*"
+
+[lib]
+crate-type = ["cdylib"]

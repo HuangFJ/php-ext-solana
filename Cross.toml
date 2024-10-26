@@ -1,0 +1,10 @@
+[build]
+default-target = "x86_64-unknown-linux-gnu"    # use this target if none is explicitly provided
+pre-build = [                                  # additional commands to run prior to building the package
+    "dpkg --add-architecture $CROSS_DEB_ARCH",
+    "apt-get update",
+    "apt-get --assume-yes install software-properties-common",
+    "add-apt-repository ppa:ondrej/php",
+    "apt-get update",
+    "apt-get --assume-yes install php8.0-dev:$CROSS_DEB_ARCH"
+]
